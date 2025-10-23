@@ -102,8 +102,8 @@ bool oled_success = false;
 bool rf1_success = false;
 bool rf2_success = false;
 
-char buffer_1[10];
-char buffer_2[10];
+char string_current_index[10];
+char string_number_of_modes[10];
 
 // =====================================================================
 // INICIO DE OPCIONES CONFIGURABLES
@@ -307,9 +307,9 @@ void start_nav() {
 	int current_index = 0;
 	bool nav_changed = false;
 
-	itoa(current_index + 1, buffer_1, 10); 
-	itoa(number_of_modes, buffer_2, 10);
-	show_nav(buffer_1, buffer_2);
+	itoa(current_index + 1, string_current_index, 10); 
+	itoa(number_of_modes, string_number_of_modes, 10);
+	show_nav(string_current_index, string_number_of_modes);
 
 	while(waiting_menu) {
 		button1.loop();
@@ -331,13 +331,14 @@ void start_nav() {
 		}
 
 		if (nav_changed) {
-			itoa(current_index + 1, buffer_1, 10); 
-			show_nav(buffer_1, buffer_2);
+			itoa(current_index + 1, string_current_index, 10); 
+			show_nav(string_current_index, string_number_of_modes);
 			nav_changed = false;
-			// Serial.printf("Indice: %d, Muestra: %s / %s\n", current_index, buffer_1, buffer_2);
+			// Serial.printf("Indice: %d, Muestra: %s / %s\n", current_index, string_current_index, string_number_of_modes);
 		}
 
 		if (button4.isPressed()) {
+			waiting_menu = false;
 			show_current_mode(current_index+1);
 			generate_silence(current_index);
 		}
