@@ -1,11 +1,8 @@
 <div align="center">
 	<img width=500px src="https://raw.githubusercontent.com/elcaza/silence_machine/refs/heads/main/silence_machine.jpeg">
-	<br>
-	<h1>Silence Machine - Single Core</h1>
-	<br>
 </div>
 
-# 
+# Silence Machine - Single Core
 La máquina generadora de silencio. Versión de un solo núcleo. 
 
 La máquina generadora de silencio es un dispositivo que te ayuda a recobrar la paz perdida cuando la bocina ruidosa de tu vecino suena a máximo volumen. 
