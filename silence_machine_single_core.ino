@@ -117,10 +117,10 @@ char string_number_of_modes[10];
 // ****************************************************
 
 const char* all_modes[] = {
-	"Description for mode 1",
-	"Description for mode 2",
-	"Description for mode 3",
-	"Description for mode 4"
+	"All 0-80",
+	"Side A 2-39",
+	"Side B 40-80",
+	"WiFi 1"
 };
 
 int number_of_modes = sizeof(all_modes) / sizeof(all_modes[0]);
@@ -132,9 +132,15 @@ int number_of_modes = sizeof(all_modes) / sizeof(all_modes[0]);
 // Modos de silencio, funciones.
 void silence_mode_1() {
 	while(1){
-		for (size_t i = 2; i < 41; i++) {
+		for (size_t i = 2; i < 77; i++) {
 			radio1.setChannel(i);
-			radio2.setChannel(i+40);
+			radio2.setChannel(i+3);
+
+			radio1.setChannel(i+1);
+			radio2.setChannel(i+4);
+
+			radio1.setChannel(i);
+			radio2.setChannel(i+3);
 		}
 	}
 }
@@ -143,52 +149,37 @@ void silence_mode_2() {
 	while(1){
 		for (size_t i = 2; i < 37; i++) {
 			radio1.setChannel(i);
-			radio2.setChannel(i+40);
+			radio2.setChannel(i+3);
 
-			radio1.setChannel(i+3);
-			radio2.setChannel(i+43);
+			radio1.setChannel(i+1);
+			radio2.setChannel(i+4);
 
-			radio1.setChannel(i+7);
-			radio2.setChannel(i+35);
+			radio1.setChannel(i);
+			radio2.setChannel(i+3);
 		}
 	}
 }
 
 void silence_mode_3() {
 	while(1){
-		for (size_t i = 0; i < 70; i++) {
+		for (size_t i = 40; i < 77; i++) {
 			radio1.setChannel(i);
-			radio2.setChannel(i+1);
-			
-			radio1.setChannel(i+2);
 			radio2.setChannel(i+3);
-			
-			radio1.setChannel(i+4);
-			radio2.setChannel(i+5);
-			
-			radio1.setChannel(i+6);
-			radio2.setChannel(i+7);
-			
-			radio1.setChannel(i+8);
-			radio2.setChannel(i+9);
-			
-			radio1.setChannel(i+10);
-			radio2.setChannel(i+11);
+
+			radio1.setChannel(i+1);
+			radio2.setChannel(i+4);
+
+			radio1.setChannel(i);
+			radio2.setChannel(i+3);
 		}
 	}
 }
 
 void silence_mode_4() {
 	while(1){
-		for (size_t i = 0; i < sizeof(wifi_frequencies) / sizeof(wifi_frequencies[0]); i++) {
-			radio1.setChannel(wifi_frequencies[i]);
-			radio2.setChannel(wifi_frequencies[i]+2);
-			
-			radio1.setChannel(wifi_frequencies[i]+5);
-			radio2.setChannel(wifi_frequencies[i]+7);
-			
-			radio1.setChannel(wifi_frequencies[i]+13);
-			radio2.setChannel(wifi_frequencies[i]+18);
+		for (size_t i = 2; i < 20; i++) {
+			radio1.setChannel(i);
+			radio2.setChannel(i+3);
 		}
 	}
 }
